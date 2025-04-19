@@ -3,7 +3,7 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 
 package TaskManagerProtoFiles;
-option go_package = "./task-manager-grpc-generated";
+option go_package = "github.com/NikitaKh06/TaskManagerProtoFiles/task-manager-grpc-generated";
 
 message CreateTaskRequest {
   string name = 1;

@@ -278,7 +278,7 @@ var File_task_manager_proto protoreflect.FileDescriptor
 
 const file_task_manager_proto_rawDesc = "" +
 	"\n" +
-	"\x12task-manager.proto\x12\vTaskManager\x1a\x1bgoogle/protobuf/empty.proto\";\n" +
+	"\x12task-manager.proto\x12\x15TaskManagerProtoFiles\x1a\x1bgoogle/protobuf/empty.proto\";\n" +
 	"\x11CreateTaskRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
 	"\x04text\x18\x02 \x01(\tR\x04text\" \n" +
@@ -292,14 +292,14 @@ const file_task_manager_proto_rawDesc = "" +
 	"\x11DeleteTaskRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\"!\n" +
 	"\x0fDoneTaskRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id2\xa1\x02\n" +
-	"\vTaskManager\x12D\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id2\xd3\x02\n" +
+	"\vTaskManager\x12N\n" +
 	"\n" +
-	"CreateTask\x12\x1e.TaskManager.CreateTaskRequest\x1a\x16.google.protobuf.Empty\x12D\n" +
-	"\aGetTask\x12\x1b.TaskManager.GetTaskRequest\x1a\x1c.TaskManager.GetTaskResponse\x12D\n" +
+	"CreateTask\x12(.TaskManagerProtoFiles.CreateTaskRequest\x1a\x16.google.protobuf.Empty\x12X\n" +
+	"\aGetTask\x12%.TaskManagerProtoFiles.GetTaskRequest\x1a&.TaskManagerProtoFiles.GetTaskResponse\x12N\n" +
 	"\n" +
-	"DeleteTask\x12\x1e.TaskManager.DeleteTaskRequest\x1a\x16.google.protobuf.Empty\x12@\n" +
-	"\bDoneTask\x12\x1c.TaskManager.DoneTaskRequest\x1a\x16.google.protobuf.EmptyB\x1fZ\x1d./task-manager-grpc-generatedb\x06proto3"
+	"DeleteTask\x12(.TaskManagerProtoFiles.DeleteTaskRequest\x1a\x16.google.protobuf.Empty\x12J\n" +
+	"\bDoneTask\x12&.TaskManagerProtoFiles.DoneTaskRequest\x1a\x16.google.protobuf.EmptyBIZGgithub.com/NikitaKh06/TaskManagerProtoFiles/task-manager-grpc-generatedb\x06proto3"
 
 var (
 	file_task_manager_proto_rawDescOnce sync.Once
@@ -315,22 +315,22 @@ func file_task_manager_proto_rawDescGZIP() []byte {
 
 var file_task_manager_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_task_manager_proto_goTypes = []any{
-	(*CreateTaskRequest)(nil), // 0: TaskManager.CreateTaskRequest
-	(*GetTaskRequest)(nil),    // 1: TaskManager.GetTaskRequest
-	(*GetTaskResponse)(nil),   // 2: TaskManager.GetTaskResponse
-	(*DeleteTaskRequest)(nil), // 3: TaskManager.DeleteTaskRequest
-	(*DoneTaskRequest)(nil),   // 4: TaskManager.DoneTaskRequest
+	(*CreateTaskRequest)(nil), // 0: TaskManagerProtoFiles.CreateTaskRequest
+	(*GetTaskRequest)(nil),    // 1: TaskManagerProtoFiles.GetTaskRequest
+	(*GetTaskResponse)(nil),   // 2: TaskManagerProtoFiles.GetTaskResponse
+	(*DeleteTaskRequest)(nil), // 3: TaskManagerProtoFiles.DeleteTaskRequest
+	(*DoneTaskRequest)(nil),   // 4: TaskManagerProtoFiles.DoneTaskRequest
 	(*emptypb.Empty)(nil),     // 5: google.protobuf.Empty
 }
 var file_task_manager_proto_depIdxs = []int32{
-	0, // 0: TaskManager.TaskManager.CreateTask:input_type -> TaskManager.CreateTaskRequest
-	1, // 1: TaskManager.TaskManager.GetTask:input_type -> TaskManager.GetTaskRequest
-	3, // 2: TaskManager.TaskManager.DeleteTask:input_type -> TaskManager.DeleteTaskRequest
-	4, // 3: TaskManager.TaskManager.DoneTask:input_type -> TaskManager.DoneTaskRequest
-	5, // 4: TaskManager.TaskManager.CreateTask:output_type -> google.protobuf.Empty
-	2, // 5: TaskManager.TaskManager.GetTask:output_type -> TaskManager.GetTaskResponse
-	5, // 6: TaskManager.TaskManager.DeleteTask:output_type -> google.protobuf.Empty
-	5, // 7: TaskManager.TaskManager.DoneTask:output_type -> google.protobuf.Empty
+	0, // 0: TaskManagerProtoFiles.TaskManager.CreateTask:input_type -> TaskManagerProtoFiles.CreateTaskRequest
+	1, // 1: TaskManagerProtoFiles.TaskManager.GetTask:input_type -> TaskManagerProtoFiles.GetTaskRequest
+	3, // 2: TaskManagerProtoFiles.TaskManager.DeleteTask:input_type -> TaskManagerProtoFiles.DeleteTaskRequest
+	4, // 3: TaskManagerProtoFiles.TaskManager.DoneTask:input_type -> TaskManagerProtoFiles.DoneTaskRequest
+	5, // 4: TaskManagerProtoFiles.TaskManager.CreateTask:output_type -> google.protobuf.Empty
+	2, // 5: TaskManagerProtoFiles.TaskManager.GetTask:output_type -> TaskManagerProtoFiles.GetTaskResponse
+	5, // 6: TaskManagerProtoFiles.TaskManager.DeleteTask:output_type -> google.protobuf.Empty
+	5, // 7: TaskManagerProtoFiles.TaskManager.DoneTask:output_type -> google.protobuf.Empty
 	4, // [4:8] is the sub-list for method output_type
 	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

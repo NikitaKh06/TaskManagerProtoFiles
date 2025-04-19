@@ -20,10 +20,10 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	TaskManager_CreateTask_FullMethodName = "/TaskManager.TaskManager/CreateTask"
-	TaskManager_GetTask_FullMethodName    = "/TaskManager.TaskManager/GetTask"
-	TaskManager_DeleteTask_FullMethodName = "/TaskManager.TaskManager/DeleteTask"
-	TaskManager_DoneTask_FullMethodName   = "/TaskManager.TaskManager/DoneTask"
+	TaskManager_CreateTask_FullMethodName = "/TaskManagerProtoFiles.TaskManager/CreateTask"
+	TaskManager_GetTask_FullMethodName    = "/TaskManagerProtoFiles.TaskManager/GetTask"
+	TaskManager_DeleteTask_FullMethodName = "/TaskManagerProtoFiles.TaskManager/DeleteTask"
+	TaskManager_DoneTask_FullMethodName   = "/TaskManagerProtoFiles.TaskManager/DoneTask"
 )
 
 // TaskManagerClient is the client API for TaskManager service.
@@ -211,7 +211,7 @@ func _TaskManager_DoneTask_Handler(srv interface{}, ctx context.Context, dec fun
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var TaskManager_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "TaskManager.TaskManager",
+	ServiceName: "TaskManagerProtoFiles.TaskManager",
 	HandlerType: (*TaskManagerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
