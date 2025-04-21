@@ -76,7 +76,6 @@ func (x *CreateTaskRequest) GetText() string {
 
 type GetTaskRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -111,14 +110,7 @@ func (*GetTaskRequest) Descriptor() ([]byte, []int) {
 	return file_task_manager_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetTaskRequest) GetId() int64 {
-	if x != nil {
-		return x.Id
-	}
-	return 0
-}
-
-type GetTaskResponse struct {
+type Task struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
@@ -128,9 +120,74 @@ type GetTaskResponse struct {
 	sizeCache     protoimpl.SizeCache
 }
 
+func (x *Task) Reset() {
+	*x = Task{}
+	mi := &file_task_manager_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Task) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Task) ProtoMessage() {}
+
+func (x *Task) ProtoReflect() protoreflect.Message {
+	mi := &file_task_manager_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Task.ProtoReflect.Descriptor instead.
+func (*Task) Descriptor() ([]byte, []int) {
+	return file_task_manager_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *Task) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Task) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Task) GetText() string {
+	if x != nil {
+		return x.Text
+	}
+	return ""
+}
+
+func (x *Task) GetDone() bool {
+	if x != nil {
+		return x.Done
+	}
+	return false
+}
+
+type GetTaskResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Tasks         []*Task                `protobuf:"bytes,1,rep,name=tasks,proto3" json:"tasks,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
 func (x *GetTaskResponse) Reset() {
 	*x = GetTaskResponse{}
-	mi := &file_task_manager_proto_msgTypes[2]
+	mi := &file_task_manager_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -142,7 +199,7 @@ func (x *GetTaskResponse) String() string {
 func (*GetTaskResponse) ProtoMessage() {}
 
 func (x *GetTaskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_task_manager_proto_msgTypes[2]
+	mi := &file_task_manager_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -155,35 +212,14 @@ func (x *GetTaskResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTaskResponse.ProtoReflect.Descriptor instead.
 func (*GetTaskResponse) Descriptor() ([]byte, []int) {
-	return file_task_manager_proto_rawDescGZIP(), []int{2}
+	return file_task_manager_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetTaskResponse) GetId() int64 {
+func (x *GetTaskResponse) GetTasks() []*Task {
 	if x != nil {
-		return x.Id
+		return x.Tasks
 	}
-	return 0
-}
-
-func (x *GetTaskResponse) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *GetTaskResponse) GetText() string {
-	if x != nil {
-		return x.Text
-	}
-	return ""
-}
-
-func (x *GetTaskResponse) GetDone() bool {
-	if x != nil {
-		return x.Done
-	}
-	return false
+	return nil
 }
 
 type DeleteTaskRequest struct {
@@ -195,7 +231,7 @@ type DeleteTaskRequest struct {
 
 func (x *DeleteTaskRequest) Reset() {
 	*x = DeleteTaskRequest{}
-	mi := &file_task_manager_proto_msgTypes[3]
+	mi := &file_task_manager_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -207,7 +243,7 @@ func (x *DeleteTaskRequest) String() string {
 func (*DeleteTaskRequest) ProtoMessage() {}
 
 func (x *DeleteTaskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_task_manager_proto_msgTypes[3]
+	mi := &file_task_manager_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -220,7 +256,7 @@ func (x *DeleteTaskRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTaskRequest.ProtoReflect.Descriptor instead.
 func (*DeleteTaskRequest) Descriptor() ([]byte, []int) {
-	return file_task_manager_proto_rawDescGZIP(), []int{3}
+	return file_task_manager_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *DeleteTaskRequest) GetId() int64 {
@@ -239,7 +275,7 @@ type DoneTaskRequest struct {
 
 func (x *DoneTaskRequest) Reset() {
 	*x = DoneTaskRequest{}
-	mi := &file_task_manager_proto_msgTypes[4]
+	mi := &file_task_manager_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -251,7 +287,7 @@ func (x *DoneTaskRequest) String() string {
 func (*DoneTaskRequest) ProtoMessage() {}
 
 func (x *DoneTaskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_task_manager_proto_msgTypes[4]
+	mi := &file_task_manager_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -264,7 +300,7 @@ func (x *DoneTaskRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DoneTaskRequest.ProtoReflect.Descriptor instead.
 func (*DoneTaskRequest) Descriptor() ([]byte, []int) {
-	return file_task_manager_proto_rawDescGZIP(), []int{4}
+	return file_task_manager_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *DoneTaskRequest) GetId() int64 {
@@ -281,14 +317,15 @@ const file_task_manager_proto_rawDesc = "" +
 	"\x12task-manager.proto\x12\x15TaskManagerProtoFiles\x1a\x1bgoogle/protobuf/empty.proto\";\n" +
 	"\x11CreateTaskRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
-	"\x04text\x18\x02 \x01(\tR\x04text\" \n" +
-	"\x0eGetTaskRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"]\n" +
-	"\x0fGetTaskResponse\x12\x0e\n" +
+	"\x04text\x18\x02 \x01(\tR\x04text\"\x10\n" +
+	"\x0eGetTaskRequest\"R\n" +
+	"\x04Task\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n" +
 	"\x04text\x18\x03 \x01(\tR\x04text\x12\x12\n" +
-	"\x04done\x18\x04 \x01(\bR\x04done\"#\n" +
+	"\x04done\x18\x04 \x01(\bR\x04done\"D\n" +
+	"\x0fGetTaskResponse\x121\n" +
+	"\x05tasks\x18\x01 \x03(\v2\x1b.TaskManagerProtoFiles.TaskR\x05tasks\"#\n" +
 	"\x11DeleteTaskRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\"!\n" +
 	"\x0fDoneTaskRequest\x12\x0e\n" +
@@ -313,29 +350,31 @@ func file_task_manager_proto_rawDescGZIP() []byte {
 	return file_task_manager_proto_rawDescData
 }
 
-var file_task_manager_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_task_manager_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_task_manager_proto_goTypes = []any{
 	(*CreateTaskRequest)(nil), // 0: TaskManagerProtoFiles.CreateTaskRequest
 	(*GetTaskRequest)(nil),    // 1: TaskManagerProtoFiles.GetTaskRequest
-	(*GetTaskResponse)(nil),   // 2: TaskManagerProtoFiles.GetTaskResponse
-	(*DeleteTaskRequest)(nil), // 3: TaskManagerProtoFiles.DeleteTaskRequest
-	(*DoneTaskRequest)(nil),   // 4: TaskManagerProtoFiles.DoneTaskRequest
-	(*emptypb.Empty)(nil),     // 5: google.protobuf.Empty
+	(*Task)(nil),              // 2: TaskManagerProtoFiles.Task
+	(*GetTaskResponse)(nil),   // 3: TaskManagerProtoFiles.GetTaskResponse
+	(*DeleteTaskRequest)(nil), // 4: TaskManagerProtoFiles.DeleteTaskRequest
+	(*DoneTaskRequest)(nil),   // 5: TaskManagerProtoFiles.DoneTaskRequest
+	(*emptypb.Empty)(nil),     // 6: google.protobuf.Empty
 }
 var file_task_manager_proto_depIdxs = []int32{
-	0, // 0: TaskManagerProtoFiles.TaskManager.CreateTask:input_type -> TaskManagerProtoFiles.CreateTaskRequest
-	1, // 1: TaskManagerProtoFiles.TaskManager.GetTask:input_type -> TaskManagerProtoFiles.GetTaskRequest
-	3, // 2: TaskManagerProtoFiles.TaskManager.DeleteTask:input_type -> TaskManagerProtoFiles.DeleteTaskRequest
-	4, // 3: TaskManagerProtoFiles.TaskManager.DoneTask:input_type -> TaskManagerProtoFiles.DoneTaskRequest
-	5, // 4: TaskManagerProtoFiles.TaskManager.CreateTask:output_type -> google.protobuf.Empty
-	2, // 5: TaskManagerProtoFiles.TaskManager.GetTask:output_type -> TaskManagerProtoFiles.GetTaskResponse
-	5, // 6: TaskManagerProtoFiles.TaskManager.DeleteTask:output_type -> google.protobuf.Empty
-	5, // 7: TaskManagerProtoFiles.TaskManager.DoneTask:output_type -> google.protobuf.Empty
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	2, // 0: TaskManagerProtoFiles.GetTaskResponse.tasks:type_name -> TaskManagerProtoFiles.Task
+	0, // 1: TaskManagerProtoFiles.TaskManager.CreateTask:input_type -> TaskManagerProtoFiles.CreateTaskRequest
+	1, // 2: TaskManagerProtoFiles.TaskManager.GetTask:input_type -> TaskManagerProtoFiles.GetTaskRequest
+	4, // 3: TaskManagerProtoFiles.TaskManager.DeleteTask:input_type -> TaskManagerProtoFiles.DeleteTaskRequest
+	5, // 4: TaskManagerProtoFiles.TaskManager.DoneTask:input_type -> TaskManagerProtoFiles.DoneTaskRequest
+	6, // 5: TaskManagerProtoFiles.TaskManager.CreateTask:output_type -> google.protobuf.Empty
+	3, // 6: TaskManagerProtoFiles.TaskManager.GetTask:output_type -> TaskManagerProtoFiles.GetTaskResponse
+	6, // 7: TaskManagerProtoFiles.TaskManager.DeleteTask:output_type -> google.protobuf.Empty
+	6, // 8: TaskManagerProtoFiles.TaskManager.DoneTask:output_type -> google.protobuf.Empty
+	5, // [5:9] is the sub-list for method output_type
+	1, // [1:5] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_task_manager_proto_init() }
@@ -349,7 +388,7 @@ func file_task_manager_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_task_manager_proto_rawDesc), len(file_task_manager_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
